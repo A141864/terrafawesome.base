@@ -3,22 +3,14 @@ pool:
 
 steps:
 - script: dotnet publish /p:WebPublishMethod=Package
-  displayName: 'dotnet publish /p:WebPublishMethod=Package'
+  displayName: 'Publish Package'
   workingDirectory: './terrafawesome'
-
-
-# - task: AzureWebApp@1
-#   inputs:
-#     azureSubscription: 'terrafawesome-nonprod'
-#     appType: 'webApp'
-#     appName: 'terrafawesome'
-#     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-#     deploymentMethod: 'auto'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
+    displayName: 'Deploy to Azure'
     ConnectionType: 'AzureRM'
     azureSubscription: 'terrafawesome-nonprod'
     appType: 'webApp'
-    WebAppName: 'terrafawesome'
+    WebAppName: '$(WebAppName)'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
