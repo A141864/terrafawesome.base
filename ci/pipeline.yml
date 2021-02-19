@@ -10,10 +10,5 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: '$(azureSubscription)'
-    appName: '$(appName)'
-    package: $(System.DefaultWorkingDirectory)/**/*.zip    
+- script: dotnet publish /p:WebPublishMethod=Package
+  displayName: 'dotnet publish /p:WebPublishMethod=Package'
