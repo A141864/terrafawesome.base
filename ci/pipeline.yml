@@ -1,3 +1,6 @@
+pool:
+  vmImage: 'windows-latest'
+
 steps:
 - script: dotnet publish /p:WebPublishMethod=Package
   displayName: 'dotnet publish /p:WebPublishMethod=Package'
