@@ -6,3 +6,9 @@ steps:
   displayName: 'dotnet publish /p:WebPublishMethod=Package'
   workingDirectory: './terrafawesome'
 
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: '$(serviceConnection)'
+    appName: 'terrafawesome'
+    appType: 'webAppLinux'
+    package: $(System.DefaultWorkingDirectory)/**/*.zip    
