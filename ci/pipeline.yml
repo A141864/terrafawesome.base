@@ -10,7 +10,7 @@ steps:
   inputs:
     displayName: 'Deploy to Azure'
     ConnectionType: 'AzureRM'
-    azureSubscription: 'terrafawesome-nonprod'
+    azureSubscription: 'azure'
     appType: 'webApp'
     WebAppName: '$(WebAppName)'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
