@@ -1,0 +1,19 @@
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml
+
+trigger:
+- {{ branch }}
+
+pool:
+  {{ pool }}
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    appName: '$(appName)'
+    package: $(System.DefaultWorkingDirectory)/**/*.zip    
