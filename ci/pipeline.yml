@@ -8,7 +8,7 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: '$(serviceConnection)'
-    appName: 'terrafawesome'
+    azureSubscription: 'terrafawesome-nonprod'
     appType: 'webAppLinux'
-    package: $(System.DefaultWorkingDirectory)/**/*.zip    
+    appName: 'terrafawesome'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
