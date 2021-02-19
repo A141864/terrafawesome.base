@@ -1,14 +1,3 @@
-# https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml
-
-trigger:
-- {{ branch }}
-
-pool:
-  {{ pool }}
-
-variables:
-  buildConfiguration: 'Release'
-
 steps:
 - script: dotnet publish /p:WebPublishMethod=Package
   displayName: 'dotnet publish /p:WebPublishMethod=Package'
