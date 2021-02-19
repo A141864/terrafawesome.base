@@ -7,8 +7,8 @@ steps:
   workingDirectory: './terrafawesome'
 
 - task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy to Azure'
   inputs:
-    displayName: 'Deploy to Azure'
     ConnectionType: 'AzureRM'
     azureSubscription: 'azure'
     appType: 'webApp'
