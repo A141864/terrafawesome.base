@@ -9,6 +9,7 @@ steps:
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'terrafawesome-nonprod'
-    appType: 'webAppLinux'
+    appType: 'webApp'
     appName: 'terrafawesome'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
